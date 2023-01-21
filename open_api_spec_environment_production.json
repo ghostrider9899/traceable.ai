@@ -47,18 +47,18 @@
             "type" : "string"
           }
         }, {
-          "name" : "content-type",
+          "name" : "host",
           "in" : "header",
-          "required" : false,
+          "required" : true,
           "style" : "simple",
           "explode" : false,
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "host",
+          "name" : "content-type",
           "in" : "header",
-          "required" : true,
+          "required" : false,
           "style" : "simple",
           "explode" : false,
           "schema" : {
@@ -255,15 +255,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "traceparent",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "referer",
           "in" : "header",
           "required" : false,
@@ -272,6 +263,15 @@
           "schema" : {
             "type" : "string",
             "format" : "url"
+          }
+        }, {
+          "name" : "traceparent",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
           }
         }, {
           "name" : "authorization",
@@ -312,15 +312,6 @@
             "x-data-type" : "email"
           }
         }, {
-          "name" : "x-requested-with",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "x-datadog-sampling-priority",
           "in" : "header",
           "required" : false,
@@ -328,6 +319,15 @@
           "explode" : false,
           "schema" : {
             "type" : "integer"
+          }
+        }, {
+          "name" : "x-requested-with",
+          "in" : "header",
+          "required" : false,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
           }
         }, {
           "name" : "__q_state_8AHswJxS5EBX3PeW",
@@ -443,188 +443,6 @@
           }
         },
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
-    "/boaform/admin/formLogin" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      },
-      "post" : {
-        "parameters" : [ {
-          "name" : "referer",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string",
-            "format" : "url"
-          }
-        }, {
-          "name" : "upgrade-insecure-requests",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "integer"
-          }
-        }, {
-          "name" : "content-type",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "host",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "accept-encoding",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "origin",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string",
-            "format" : "url"
-          }
-        }, {
-          "name" : "connection",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "user-agent",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "accept-language",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "content-length",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "integer"
-          }
-        }, {
-          "name" : "accept",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/x-www-form-urlencoded" : {
-              "schema" : {
-                "required" : [ "psd", "username" ],
-                "type" : "object",
-                "properties" : {
-                  "username" : {
-                    "type" : "string",
-                    "x-data-type" : "username"
-                  },
-                  "psd" : {
-                    "type" : "string"
-                  }
-                },
-                "x-data-type" : "username"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "302" : {
-            "description" : "Found",
-            "headers" : {
-              "content-length" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "integer"
-                }
-              },
-              "server" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "traceparent" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "connection" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "location" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "x-traceable-message" : "Duplicate learnt endpoints identified. Specification is listed for one of those endpoints"
       }
     },
     "/cart" : {
@@ -1540,6 +1358,18 @@
                 "required" : [ "city", "country", "credit_card_cvv", "credit_card_expiration_month", "credit_card_expiration_year", "credit_card_number", "email", "state", "street_address", "zip_code" ],
                 "type" : "object",
                 "properties" : {
+                  "credit_card_number" : {
+                    "type" : "string",
+                    "format" : "credit_card"
+                  },
+                  "country" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string",
+                    "format" : "email",
+                    "x-data-type" : "email"
+                  },
                   "credit_card_expiration_year" : {
                     "type" : "integer",
                     "x-data-type" : "cc expiry"
@@ -1563,18 +1393,6 @@
                   "credit_card_expiration_month" : {
                     "type" : "integer",
                     "x-data-type" : "cc expiry"
-                  },
-                  "credit_card_number" : {
-                    "type" : "string",
-                    "format" : "credit_card"
-                  },
-                  "country" : {
-                    "type" : "string"
-                  },
-                  "email" : {
-                    "type" : "string",
-                    "format" : "email",
-                    "x-data-type" : "email"
                   }
                 },
                 "x-data-type" : "cc expiry"
@@ -2245,18 +2063,6 @@
                   "value-param-019" : {
                     "type" : "string"
                   },
-                  "value-param-009" : {
-                    "type" : "string"
-                  },
-                  "value-param-005" : {
-                    "type" : "string"
-                  },
-                  "value-param-006" : {
-                    "type" : "string"
-                  },
-                  "value-param-007" : {
-                    "type" : "string"
-                  },
                   "value-param-018" : {
                     "type" : "string"
                   },
@@ -2272,22 +2078,10 @@
                   "value-param-014" : {
                     "type" : "string"
                   },
-                  "value-param-013" : {
-                    "type" : "string"
-                  },
-                  "value-param-012" : {
-                    "type" : "string"
-                  },
-                  "value-param-011" : {
-                    "type" : "string"
-                  },
-                  "value-param-010" : {
+                  "value-param-021" : {
                     "type" : "string"
                   },
                   "value-param-020" : {
-                    "type" : "string"
-                  },
-                  "value-param-008" : {
                     "type" : "string"
                   }
                 }
@@ -2433,18 +2227,6 @@
                         "value-param-019" : {
                           "type" : "string"
                         },
-                        "value-param-009" : {
-                          "type" : "string"
-                        },
-                        "value-param-005" : {
-                          "type" : "string"
-                        },
-                        "value-param-006" : {
-                          "type" : "string"
-                        },
-                        "value-param-007" : {
-                          "type" : "string"
-                        },
                         "value-param-018" : {
                           "type" : "string"
                         },
@@ -2460,22 +2242,10 @@
                         "value-param-014" : {
                           "type" : "string"
                         },
-                        "value-param-013" : {
-                          "type" : "string"
-                        },
-                        "value-param-012" : {
-                          "type" : "string"
-                        },
-                        "value-param-011" : {
-                          "type" : "string"
-                        },
-                        "value-param-010" : {
+                        "value-param-021" : {
                           "type" : "string"
                         },
                         "value-param-020" : {
-                          "type" : "string"
-                        },
-                        "value-param-008" : {
                           "type" : "string"
                         }
                       }
@@ -2677,18 +2447,12 @@
                 "schema" : {
                   "type" : "object",
                   "properties" : {
+                    "protocol" : {
+                      "type" : "string"
+                    },
                     "headers" : {
                       "type" : "object",
                       "properties" : {
-                        "content-type" : {
-                          "type" : "string"
-                        },
-                        "traceparent" : {
-                          "type" : "string"
-                        },
-                        "x-request-id" : {
-                          "type" : "string"
-                        },
                         "x-forwarded-proto" : {
                           "type" : "string"
                         },
@@ -2702,6 +2466,15 @@
                           "type" : "string"
                         },
                         "user-agent" : {
+                          "type" : "string"
+                        },
+                        "content-type" : {
+                          "type" : "string"
+                        },
+                        "traceparent" : {
+                          "type" : "string"
+                        },
+                        "x-request-id" : {
                           "type" : "string"
                         }
                       }
@@ -2732,9 +2505,6 @@
                         }
                       },
                       "x-data-type" : "Social Security Number"
-                    },
-                    "protocol" : {
-                      "type" : "string"
                     }
                   },
                   "x-data-type" : "Social Security Number"
@@ -3011,15 +2781,6 @@
     "/config/configservice/v1" : {
       "post" : {
         "parameters" : [ {
-          "name" : "traceparent",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "x-request-id",
           "in" : "header",
           "required" : true,
@@ -3038,15 +2799,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "accept-encoding",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "content-type",
           "in" : "header",
           "required" : true,
@@ -3057,6 +2809,15 @@
           }
         }, {
           "name" : "host",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "accept-encoding",
           "in" : "header",
           "required" : true,
           "style" : "simple",
@@ -3250,19 +3011,6 @@
                 }
               }
             }
-          },
-          "503" : {
-            "description" : "Service Unavailable",
-            "headers" : {
-              "content-length" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "integer"
-                }
-              }
-            }
           }
         }
       }
@@ -3270,6 +3018,24 @@
     "/config/confirmationCheck" : {
       "post" : {
         "parameters" : [ {
+          "name" : "session",
+          "in" : "cookie",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "name",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "content-type",
           "in" : "header",
           "required" : true,
@@ -3342,6 +3108,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "shop_session-id",
+          "in" : "cookie",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "value-param-015",
           "in" : "query",
           "required" : false,
@@ -3352,15 +3127,6 @@
           }
         }, {
           "name" : "value-param-016",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-013",
           "in" : "query",
           "required" : false,
           "style" : "form",
@@ -3387,7 +3153,27 @@
             "type" : "string"
           }
         }, {
-          "name" : "value-param-011",
+          "name" : "connection",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "email",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "email",
+            "x-data-type" : "email"
+          }
+        }, {
+          "name" : "value-param-020",
           "in" : "query",
           "required" : false,
           "style" : "form",
@@ -3396,16 +3182,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "value-param-012",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-010",
+          "name" : "value-param-021",
           "in" : "query",
           "required" : false,
           "style" : "form",
@@ -3423,107 +3200,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "session",
-          "in" : "cookie",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "name",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-008",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-009",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-006",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-007",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "shop_session-id",
-          "in" : "cookie",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-005",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "email",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string",
-            "format" : "email",
-            "x-data-type" : "email"
-          }
-        }, {
-          "name" : "connection",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-020",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "accept",
           "in" : "header",
           "required" : true,
@@ -3535,18 +3211,18 @@
         } ],
         "requestBody" : { },
         "responses" : {
-          "302" : {
-            "description" : "Found",
+          "500" : {
+            "description" : "Internal Server Error",
             "headers" : {
-              "content-length" : {
+              "server" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
-                  "type" : "integer"
+                  "type" : "string"
                 }
               },
-              "server" : {
+              "transfer-encoding" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
@@ -3563,27 +3239,6 @@
                 }
               },
               "connection" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "location" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal Server Error",
-            "headers" : {
-              "transfer-encoding" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
@@ -3988,7 +3643,7 @@
               "schema" : {
                 "type" : "object",
                 "properties" : {
-                  "value-param-007" : {
+                  "value-param-019" : {
                     "type" : "string"
                   },
                   "value-param-018" : {
@@ -4006,34 +3661,10 @@
                   "value-param-014" : {
                     "type" : "string"
                   },
-                  "value-param-013" : {
-                    "type" : "string"
-                  },
-                  "value-param-012" : {
-                    "type" : "string"
-                  },
-                  "value-param-011" : {
-                    "type" : "string"
-                  },
-                  "value-param-010" : {
+                  "value-param-021" : {
                     "type" : "string"
                   },
                   "value-param-020" : {
-                    "type" : "string"
-                  },
-                  "value-param-008" : {
-                    "type" : "string"
-                  },
-                  "value-param-019" : {
-                    "type" : "string"
-                  },
-                  "value-param-009" : {
-                    "type" : "string"
-                  },
-                  "value-param-005" : {
-                    "type" : "string"
-                  },
-                  "value-param-006" : {
                     "type" : "string"
                   }
                 }
@@ -4131,7 +3762,7 @@
                     "body" : {
                       "type" : "object",
                       "properties" : {
-                        "value-param-007" : {
+                        "value-param-019" : {
                           "type" : "string"
                         },
                         "value-param-018" : {
@@ -4149,52 +3780,15 @@
                         "value-param-014" : {
                           "type" : "string"
                         },
-                        "value-param-013" : {
-                          "type" : "string"
-                        },
-                        "value-param-012" : {
-                          "type" : "string"
-                        },
-                        "value-param-011" : {
-                          "type" : "string"
-                        },
-                        "value-param-010" : {
+                        "value-param-021" : {
                           "type" : "string"
                         },
                         "value-param-020" : {
-                          "type" : "string"
-                        },
-                        "value-param-008" : {
-                          "type" : "string"
-                        },
-                        "value-param-019" : {
-                          "type" : "string"
-                        },
-                        "value-param-009" : {
-                          "type" : "string"
-                        },
-                        "value-param-005" : {
-                          "type" : "string"
-                        },
-                        "value-param-006" : {
                           "type" : "string"
                         }
                       }
                     }
                   }
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal Server Error",
-            "headers" : {
-              "transfer-encoding" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
                 }
               }
             }
@@ -4287,18 +3881,6 @@
                   "value-param-019" : {
                     "type" : "string"
                   },
-                  "value-param-009" : {
-                    "type" : "string"
-                  },
-                  "value-param-005" : {
-                    "type" : "string"
-                  },
-                  "value-param-006" : {
-                    "type" : "string"
-                  },
-                  "value-param-007" : {
-                    "type" : "string"
-                  },
                   "value-param-018" : {
                     "type" : "string"
                   },
@@ -4314,22 +3896,10 @@
                   "value-param-014" : {
                     "type" : "string"
                   },
-                  "value-param-013" : {
-                    "type" : "string"
-                  },
-                  "value-param-012" : {
-                    "type" : "string"
-                  },
-                  "value-param-011" : {
-                    "type" : "string"
-                  },
-                  "value-param-010" : {
+                  "value-param-021" : {
                     "type" : "string"
                   },
                   "value-param-020" : {
-                    "type" : "string"
-                  },
-                  "value-param-008" : {
                     "type" : "string"
                   }
                 }
@@ -4475,18 +4045,6 @@
                         "value-param-019" : {
                           "type" : "string"
                         },
-                        "value-param-009" : {
-                          "type" : "string"
-                        },
-                        "value-param-005" : {
-                          "type" : "string"
-                        },
-                        "value-param-006" : {
-                          "type" : "string"
-                        },
-                        "value-param-007" : {
-                          "type" : "string"
-                        },
                         "value-param-018" : {
                           "type" : "string"
                         },
@@ -4502,22 +4060,10 @@
                         "value-param-014" : {
                           "type" : "string"
                         },
-                        "value-param-013" : {
-                          "type" : "string"
-                        },
-                        "value-param-012" : {
-                          "type" : "string"
-                        },
-                        "value-param-011" : {
-                          "type" : "string"
-                        },
-                        "value-param-010" : {
+                        "value-param-021" : {
                           "type" : "string"
                         },
                         "value-param-020" : {
-                          "type" : "string"
-                        },
-                        "value-param-008" : {
                           "type" : "string"
                         }
                       }
@@ -4537,15 +4083,6 @@
     "/config/orderservice/v1" : {
       "post" : {
         "parameters" : [ {
-          "name" : "traceparent",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "x-request-id",
           "in" : "header",
           "required" : true,
@@ -4564,6 +4101,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "host",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "accept-encoding",
           "in" : "header",
           "required" : true,
@@ -4574,15 +4120,6 @@
           }
         }, {
           "name" : "content-type",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "host",
           "in" : "header",
           "required" : true,
           "style" : "simple",
@@ -4783,7 +4320,34 @@
     "/config/queryStatus" : {
       "post" : {
         "parameters" : [ {
+          "name" : "x-request-id",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "session",
+          "in" : "cookie",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "x-forwarded-proto",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "name",
           "in" : "header",
           "required" : true,
           "style" : "simple",
@@ -4837,6 +4401,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "traceparent",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "value-param-017",
           "in" : "query",
           "required" : false,
@@ -4849,6 +4422,15 @@
           "name" : "value-param-018",
           "in" : "query",
           "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "shop_session-id",
+          "in" : "cookie",
+          "required" : true,
           "style" : "form",
           "explode" : true,
           "schema" : {
@@ -4873,15 +4455,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "value-param-013",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "accept-encoding",
           "in" : "header",
           "required" : true,
@@ -4892,105 +4465,6 @@
           }
         }, {
           "name" : "value-param-014",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-011",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-012",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-010",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "x-request-id",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "session",
-          "in" : "cookie",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "name",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-008",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-009",
-          "in" : "query",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "traceparent",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "shop_session-id",
-          "in" : "cookie",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "value-param-005",
           "in" : "query",
           "required" : false,
           "style" : "form",
@@ -5019,6 +4493,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "value-param-021",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "accept",
           "in" : "header",
           "required" : true,
@@ -5030,8 +4513,8 @@
         } ],
         "requestBody" : { },
         "responses" : {
-          "302" : {
-            "description" : "Found",
+          "500" : {
+            "description" : "Internal Server Error",
             "headers" : {
               "date" : {
                 "required" : false,
@@ -5041,36 +4524,15 @@
                   "type" : "string"
                 }
               },
-              "content-length" : {
+              "transfer-encoding" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
-                  "type" : "integer"
+                  "type" : "string"
                 }
               },
               "traceparent" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "location" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal Server Error",
-            "headers" : {
-              "transfer-encoding" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
@@ -5539,18 +5001,12 @@
                 "schema" : {
                   "type" : "object",
                   "properties" : {
+                    "protocol" : {
+                      "type" : "string"
+                    },
                     "headers" : {
                       "type" : "object",
                       "properties" : {
-                        "content-type" : {
-                          "type" : "string"
-                        },
-                        "traceparent" : {
-                          "type" : "string"
-                        },
-                        "x-request-id" : {
-                          "type" : "string"
-                        },
                         "x-forwarded-proto" : {
                           "type" : "string"
                         },
@@ -5564,6 +5020,15 @@
                           "type" : "string"
                         },
                         "user-agent" : {
+                          "type" : "string"
+                        },
+                        "content-type" : {
+                          "type" : "string"
+                        },
+                        "traceparent" : {
+                          "type" : "string"
+                        },
+                        "x-request-id" : {
                           "type" : "string"
                         }
                       }
@@ -5594,9 +5059,6 @@
                         }
                       },
                       "x-data-type" : "Social Security Number"
-                    },
-                    "protocol" : {
-                      "type" : "string"
                     }
                   },
                   "x-data-type" : "Social Security Number"
@@ -5692,6 +5154,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "connection",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "email",
           "in" : "header",
           "required" : true,
@@ -5701,15 +5172,6 @@
             "type" : "string",
             "format" : "email",
             "x-data-type" : "email"
-          }
-        }, {
-          "name" : "connection",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
           }
         }, {
           "name" : "user-agent",
@@ -5739,18 +5201,6 @@
                   "value-param-019" : {
                     "type" : "string"
                   },
-                  "value-param-009" : {
-                    "type" : "string"
-                  },
-                  "value-param-005" : {
-                    "type" : "string"
-                  },
-                  "value-param-006" : {
-                    "type" : "string"
-                  },
-                  "value-param-007" : {
-                    "type" : "string"
-                  },
                   "value-param-018" : {
                     "type" : "string"
                   },
@@ -5766,22 +5216,10 @@
                   "value-param-014" : {
                     "type" : "string"
                   },
-                  "value-param-013" : {
-                    "type" : "string"
-                  },
-                  "value-param-012" : {
-                    "type" : "string"
-                  },
-                  "value-param-011" : {
-                    "type" : "string"
-                  },
-                  "value-param-010" : {
+                  "value-param-021" : {
                     "type" : "string"
                   },
                   "value-param-020" : {
-                    "type" : "string"
-                  },
-                  "value-param-008" : {
                     "type" : "string"
                   }
                 }
@@ -5887,18 +5325,6 @@
                         "value-param-019" : {
                           "type" : "string"
                         },
-                        "value-param-009" : {
-                          "type" : "string"
-                        },
-                        "value-param-005" : {
-                          "type" : "string"
-                        },
-                        "value-param-006" : {
-                          "type" : "string"
-                        },
-                        "value-param-007" : {
-                          "type" : "string"
-                        },
                         "value-param-018" : {
                           "type" : "string"
                         },
@@ -5914,22 +5340,10 @@
                         "value-param-014" : {
                           "type" : "string"
                         },
-                        "value-param-013" : {
-                          "type" : "string"
-                        },
-                        "value-param-012" : {
-                          "type" : "string"
-                        },
-                        "value-param-011" : {
-                          "type" : "string"
-                        },
-                        "value-param-010" : {
+                        "value-param-021" : {
                           "type" : "string"
                         },
                         "value-param-020" : {
-                          "type" : "string"
-                        },
-                        "value-param-008" : {
                           "type" : "string"
                         }
                       }
@@ -6030,15 +5444,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "connection",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "email",
           "in" : "header",
           "required" : true,
@@ -6048,6 +5453,15 @@
             "type" : "string",
             "format" : "email",
             "x-data-type" : "email"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
           }
         }, {
           "name" : "user-agent",
@@ -6077,18 +5491,6 @@
                   "value-param-019" : {
                     "type" : "string"
                   },
-                  "value-param-009" : {
-                    "type" : "string"
-                  },
-                  "value-param-005" : {
-                    "type" : "string"
-                  },
-                  "value-param-006" : {
-                    "type" : "string"
-                  },
-                  "value-param-007" : {
-                    "type" : "string"
-                  },
                   "value-param-018" : {
                     "type" : "string"
                   },
@@ -6104,22 +5506,10 @@
                   "value-param-014" : {
                     "type" : "string"
                   },
-                  "value-param-013" : {
-                    "type" : "string"
-                  },
-                  "value-param-012" : {
-                    "type" : "string"
-                  },
-                  "value-param-011" : {
-                    "type" : "string"
-                  },
-                  "value-param-010" : {
+                  "value-param-021" : {
                     "type" : "string"
                   },
                   "value-param-020" : {
-                    "type" : "string"
-                  },
-                  "value-param-008" : {
                     "type" : "string"
                   }
                 }
@@ -6139,7 +5529,23 @@
                   "type" : "integer"
                 }
               },
+              "server" : {
+                "required" : false,
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string"
+                }
+              },
               "traceparent" : {
+                "required" : false,
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "connection" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
@@ -6209,18 +5615,6 @@
                         "value-param-019" : {
                           "type" : "string"
                         },
-                        "value-param-009" : {
-                          "type" : "string"
-                        },
-                        "value-param-005" : {
-                          "type" : "string"
-                        },
-                        "value-param-006" : {
-                          "type" : "string"
-                        },
-                        "value-param-007" : {
-                          "type" : "string"
-                        },
                         "value-param-018" : {
                           "type" : "string"
                         },
@@ -6236,22 +5630,10 @@
                         "value-param-014" : {
                           "type" : "string"
                         },
-                        "value-param-013" : {
-                          "type" : "string"
-                        },
-                        "value-param-012" : {
-                          "type" : "string"
-                        },
-                        "value-param-011" : {
-                          "type" : "string"
-                        },
-                        "value-param-010" : {
+                        "value-param-021" : {
                           "type" : "string"
                         },
                         "value-param-020" : {
-                          "type" : "string"
-                        },
-                        "value-param-008" : {
                           "type" : "string"
                         }
                       }
@@ -6267,36 +5649,7 @@
           "302" : {
             "description" : "Found",
             "headers" : {
-              "server" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
-              "connection" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              },
               "location" : {
-                "required" : false,
-                "style" : "simple",
-                "explode" : false,
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal Server Error",
-            "headers" : {
-              "transfer-encoding" : {
                 "required" : false,
                 "style" : "simple",
                 "explode" : false,
@@ -6979,69 +6332,6 @@
             "type" : "integer"
           }
         }, {
-          "name" : "x-forwarded-proto",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "content-type",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "host",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "Max-Age",
-          "in" : "cookie",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          }
-        }, {
-          "name" : "accept-encoding",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "_gaexp",
-          "in" : "cookie",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "pragma",
-          "in" : "header",
-          "required" : false,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "x-request-id",
           "in" : "header",
           "required" : true,
@@ -7060,7 +6350,25 @@
             "type" : "string"
           }
         }, {
-          "name" : "accept-charset",
+          "name" : "x-forwarded-proto",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "host",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "content-type",
           "in" : "header",
           "required" : false,
           "style" : "simple",
@@ -7069,7 +6377,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "cache-control",
+          "name" : "accept-charset",
           "in" : "header",
           "required" : false,
           "style" : "simple",
@@ -7085,6 +6393,15 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "Max-Age",
+          "in" : "cookie",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer"
           }
         }, {
           "name" : "visid_incap_2868312",
@@ -7114,15 +6431,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "traceparent",
-          "in" : "header",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "referer",
           "in" : "header",
           "required" : false,
@@ -7131,6 +6439,15 @@
           "schema" : {
             "type" : "string",
             "format" : "url"
+          }
+        }, {
+          "name" : "traceparent",
+          "in" : "header",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
           }
         }, {
           "name" : "authorization",
@@ -7143,6 +6460,24 @@
           }
         }, {
           "name" : "shop_session-id",
+          "in" : "cookie",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "accept-encoding",
+          "in" : "header",
+          "required" : false,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "_gaexp",
           "in" : "cookie",
           "required" : false,
           "style" : "form",
@@ -7780,6 +7115,15 @@
                     "user" : {
                       "type" : "object",
                       "properties" : {
+                        "phone" : {
+                          "type" : "string",
+                          "x-data-type" : "phone"
+                        },
+                        "email" : {
+                          "type" : "string",
+                          "format" : "email",
+                          "x-data-type" : "email"
+                        },
                         "address" : {
                           "type" : "string",
                           "x-data-type" : "address"
@@ -7809,15 +7153,6 @@
                         },
                         "role" : {
                           "type" : "string"
-                        },
-                        "phone" : {
-                          "type" : "string",
-                          "x-data-type" : "phone"
-                        },
-                        "email" : {
-                          "type" : "string",
-                          "format" : "email",
-                          "x-data-type" : "email"
                         }
                       },
                       "x-data-type" : "password"
@@ -7837,6 +7172,15 @@
                     "user" : {
                       "type" : "object",
                       "properties" : {
+                        "phone" : {
+                          "type" : "string",
+                          "x-data-type" : "phone"
+                        },
+                        "email" : {
+                          "type" : "string",
+                          "format" : "email",
+                          "x-data-type" : "email"
+                        },
                         "address" : {
                           "type" : "string",
                           "x-data-type" : "address"
@@ -7866,15 +7210,6 @@
                         },
                         "role" : {
                           "type" : "string"
-                        },
-                        "phone" : {
-                          "type" : "string",
-                          "x-data-type" : "phone"
-                        },
-                        "email" : {
-                          "type" : "string",
-                          "format" : "email",
-                          "x-data-type" : "email"
                         }
                       },
                       "x-data-type" : "password"
@@ -8281,33 +7616,6 @@
                 "required" : [ "shipping_address", "shipping_cost", "shipping_tracking_id", "total_cost", "user_id" ],
                 "type" : "object",
                 "properties" : {
-                  "user_id" : {
-                    "type" : "string"
-                  },
-                  "shipping_tracking_id" : {
-                    "type" : "string"
-                  },
-                  "shipping_address" : {
-                    "required" : [ "city", "country", "state", "street_address", "zip_code" ],
-                    "type" : "object",
-                    "properties" : {
-                      "street_address" : {
-                        "type" : "string"
-                      },
-                      "state" : {
-                        "type" : "string"
-                      },
-                      "zip_code" : {
-                        "type" : "integer"
-                      },
-                      "country" : {
-                        "type" : "string"
-                      },
-                      "city" : {
-                        "type" : "string"
-                      }
-                    }
-                  },
                   "shipping_cost" : {
                     "required" : [ "currency_code", "units" ],
                     "type" : "object",
@@ -8335,6 +7643,33 @@
                       },
                       "nanos" : {
                         "type" : "integer"
+                      }
+                    }
+                  },
+                  "user_id" : {
+                    "type" : "string"
+                  },
+                  "shipping_tracking_id" : {
+                    "type" : "string"
+                  },
+                  "shipping_address" : {
+                    "required" : [ "city", "country", "state", "street_address", "zip_code" ],
+                    "type" : "object",
+                    "properties" : {
+                      "zip_code" : {
+                        "type" : "integer"
+                      },
+                      "country" : {
+                        "type" : "string"
+                      },
+                      "city" : {
+                        "type" : "string"
+                      },
+                      "street_address" : {
+                        "type" : "string"
+                      },
+                      "state" : {
+                        "type" : "string"
                       }
                     }
                   }
@@ -8369,23 +7704,6 @@
                 "schema" : {
                   "type" : "object",
                   "properties" : {
-                    "total_cost" : {
-                      "type" : "object",
-                      "properties" : {
-                        "currency_code" : {
-                          "type" : "string"
-                        },
-                        "units" : {
-                          "type" : "integer"
-                        },
-                        "nanos" : {
-                          "type" : "integer"
-                        }
-                      }
-                    },
-                    "user_id" : {
-                      "type" : "string"
-                    },
                     "shipping_cost" : {
                       "type" : "object",
                       "properties" : {
@@ -8412,12 +7730,6 @@
                     "shipping_address" : {
                       "type" : "object",
                       "properties" : {
-                        "street_address" : {
-                          "type" : "string"
-                        },
-                        "state" : {
-                          "type" : "string"
-                        },
                         "zip_code" : {
                           "type" : "integer"
                         },
@@ -8426,8 +7738,31 @@
                         },
                         "city" : {
                           "type" : "string"
+                        },
+                        "street_address" : {
+                          "type" : "string"
+                        },
+                        "state" : {
+                          "type" : "string"
                         }
                       }
+                    },
+                    "total_cost" : {
+                      "type" : "object",
+                      "properties" : {
+                        "currency_code" : {
+                          "type" : "string"
+                        },
+                        "units" : {
+                          "type" : "integer"
+                        },
+                        "nanos" : {
+                          "type" : "integer"
+                        }
+                      }
+                    },
+                    "user_id" : {
+                      "type" : "string"
                     }
                   }
                 }
@@ -9221,6 +8556,23 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "total_cost" : {
+                        "type" : "object",
+                        "properties" : {
+                          "currency_code" : {
+                            "type" : "string"
+                          },
+                          "units" : {
+                            "type" : "integer"
+                          },
+                          "nanos" : {
+                            "type" : "integer"
+                          }
+                        }
+                      },
+                      "user_id" : {
+                        "type" : "string"
+                      },
                       "shipping_cost" : {
                         "type" : "object",
                         "properties" : {
@@ -9247,6 +8599,12 @@
                       "shipping_address" : {
                         "type" : "object",
                         "properties" : {
+                          "street_address" : {
+                            "type" : "string"
+                          },
+                          "state" : {
+                            "type" : "string"
+                          },
                           "zip_code" : {
                             "type" : "integer"
                           },
@@ -9255,31 +8613,8 @@
                           },
                           "city" : {
                             "type" : "string"
-                          },
-                          "street_address" : {
-                            "type" : "string"
-                          },
-                          "state" : {
-                            "type" : "string"
                           }
                         }
-                      },
-                      "total_cost" : {
-                        "type" : "object",
-                        "properties" : {
-                          "currency_code" : {
-                            "type" : "string"
-                          },
-                          "units" : {
-                            "type" : "integer"
-                          },
-                          "nanos" : {
-                            "type" : "integer"
-                          }
-                        }
-                      },
-                      "user_id" : {
-                        "type" : "string"
                       }
                     }
                   }
@@ -9393,20 +8728,23 @@
                       "items" : {
                         "type" : "object",
                         "properties" : {
+                          "description" : {
+                            "type" : "string"
+                          },
                           "id" : {
                             "type" : "string"
                           },
                           "priceUsd" : {
                             "type" : "object",
                             "properties" : {
-                              "currencyCode" : {
-                                "type" : "string"
-                              },
                               "units" : {
                                 "type" : "integer"
                               },
                               "nanos" : {
                                 "type" : "integer"
+                              },
+                              "currencyCode" : {
+                                "type" : "string"
                               }
                             }
                           },
@@ -9421,9 +8759,6 @@
                             "items" : {
                               "type" : "string"
                             }
-                          },
-                          "description" : {
-                            "type" : "string"
                           }
                         }
                       }
@@ -11204,18 +10539,12 @@
                 "schema" : {
                   "type" : "object",
                   "properties" : {
+                    "protocol" : {
+                      "type" : "string"
+                    },
                     "headers" : {
                       "type" : "object",
                       "properties" : {
-                        "content-type" : {
-                          "type" : "string"
-                        },
-                        "traceparent" : {
-                          "type" : "string"
-                        },
-                        "x-request-id" : {
-                          "type" : "string"
-                        },
                         "x-forwarded-proto" : {
                           "type" : "string"
                         },
@@ -11229,6 +10558,15 @@
                           "type" : "string"
                         },
                         "user-agent" : {
+                          "type" : "string"
+                        },
+                        "content-type" : {
+                          "type" : "string"
+                        },
+                        "traceparent" : {
+                          "type" : "string"
+                        },
+                        "x-request-id" : {
                           "type" : "string"
                         }
                       }
@@ -11255,9 +10593,6 @@
                         }
                       },
                       "x-data-type" : "Medical Records Number"
-                    },
-                    "protocol" : {
-                      "type" : "string"
                     }
                   },
                   "x-data-type" : "Medical Records Number"
@@ -13454,8 +12789,8 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/2phpmyadmin/index.php" : {
-      "get" : {
+    "/71624567" : {
+      "post" : {
         "responses" : {
           "default" : {
             "description" : ""
@@ -13950,16 +13285,6 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/administrator/db/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
     "/administrator/phpMyAdmin/index.php" : {
       "get" : {
         "responses" : {
@@ -14132,6 +13457,24 @@
     },
     "/blog/wp-includes/wlwmanifest.xml" : {
       "get" : {
+        "responses" : {
+          "default" : {
+            "description" : ""
+          }
+        },
+        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
+      }
+    },
+    "/boaform/admin/formLogin" : {
+      "get" : {
+        "responses" : {
+          "default" : {
+            "description" : ""
+          }
+        },
+        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
+      },
+      "post" : {
         "responses" : {
           "default" : {
             "description" : ""
@@ -14430,16 +13773,6 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/db/phpmyadmin/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
     "/db/phpmyadmin3/index.php" : {
       "get" : {
         "responses" : {
@@ -14451,26 +13784,6 @@
       }
     },
     "/db/phpmyadmin5/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
-    "/db/webadmin/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
-    "/db/websql/index.php" : {
       "get" : {
         "responses" : {
           "default" : {
@@ -15220,16 +14533,6 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/nmaplowercheck1671583210" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
     "/nmaplowercheck1672098631" : {
       "get" : {
         "responses" : {
@@ -15350,16 +14653,6 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/php-myadmin/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
     "/php.php" : {
       "get" : {
         "responses" : {
@@ -15460,16 +14753,6 @@
         "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
       }
     },
-    "/phpMyAdmin-5.2.0/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
     "/phpMyAdmin-5.3.0-all-languages/index.php" : {
       "get" : {
         "responses" : {
@@ -15531,16 +14814,6 @@
       }
     },
     "/phpMyAdmin1/index.php" : {
-      "get" : {
-        "responses" : {
-          "default" : {
-            "description" : ""
-          }
-        },
-        "x-traceable-message" : "Parameters and schema may be missing because this endpoint is under learning"
-      }
-    },
-    "/phpMyAdmin2/index.php" : {
       "get" : {
         "responses" : {
           "default" : {
